@@ -28,19 +28,23 @@ export function Header() {
         scrolled ? "bg-white/80 backdrop-blur-md shadow-md py-3" : "bg-transparent py-5"
       }`}
     >
-      <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
+      <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between gap-4">
         <Link href="/">
           <div className="flex items-center cursor-pointer">
-            <img src="/assets/logo.png" alt="Unklass Logo" className="h-10 md:h-12 object-contain" />
+            <img
+              src="/assets/logo.png"
+              alt="Unklass"
+              className="h-12 sm:h-14 md:h-16 object-contain"
+            />
           </div>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        {/* Desktop Nav — visible from sm and up */}
+        <nav className="hidden sm:flex items-center gap-5 md:gap-8">
           {navigationItems.map((item) => (
             <Link key={item.href} href={item.href}>
               <div
-                className={`text-sm font-medium transition-colors hover:text-primary cursor-pointer ${
+                className={`text-sm md:text-base font-medium transition-colors hover:text-primary cursor-pointer whitespace-nowrap ${
                   location === item.href ? "text-primary font-bold" : "text-foreground"
                 }`}
               >
@@ -49,16 +53,17 @@ export function Header() {
             </Link>
           ))}
           <Link href="/contact">
-            <Button className="bg-primary hover:bg-primary/90 text-white font-bold rounded-full px-6 shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5">
+            <Button className="bg-primary hover:bg-primary/90 text-white font-bold rounded-full px-5 md:px-6 shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 whitespace-nowrap">
               Book a Free Trial
             </Button>
           </Link>
         </nav>
 
-        {/* Mobile Menu Toggle */}
+        {/* Mobile Menu Toggle — only true mobile */}
         <button
-          className="md:hidden p-2 text-foreground"
+          className="sm:hidden p-2 text-foreground"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -70,7 +75,7 @@ export function Header() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="absolute top-full left-4 right-4 mt-2 bg-white rounded-2xl shadow-xl border border-border overflow-hidden"
+              className="sm:hidden absolute top-full left-4 right-4 mt-2 bg-white rounded-2xl shadow-xl border border-border overflow-hidden"
             >
               <div className="p-4 flex flex-col gap-4">
                 {navigationItems.map((item) => (
