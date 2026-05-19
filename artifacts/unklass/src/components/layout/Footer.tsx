@@ -32,12 +32,24 @@ const contactItems = [
   },
 ];
 
+const subjects = [
+  "Mathematics",
+  "Science",
+  "English",
+  "Coding",
+  "Languages",
+  "CBSE",
+  "ICSE",
+  "IB",
+  "IGCSE",
+];
+
 export function Footer() {
   return (
     <footer className="bg-primary text-white">
       <div className="container mx-auto px-6 max-w-7xl py-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
-          {/* Brand + address */}
+        {/* Row 1: Brand+address (left) | Subjects (right) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
           <div>
             <Link href="/">
               <div className="inline-flex items-center gap-2 bg-white rounded-xl px-3 py-2 mb-3 cursor-pointer shadow-sm">
@@ -60,12 +72,34 @@ export function Footer() {
             </p>
           </div>
 
+          <div>
+            <h3 className="text-xs font-heading font-bold mb-3 text-white uppercase tracking-wider">
+              Subjects &amp; Boards
+            </h3>
+            <div className="flex flex-wrap gap-1.5">
+              {subjects.map((item) => (
+                <span
+                  key={item}
+                  className="text-[11px] bg-white text-foreground px-2.5 py-1 rounded-full shadow-sm"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="border-t border-white/15 my-6" />
+
+        {/* Row 2: Quick Links | Get in Touch | Community */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
           {/* Quick Links */}
           <div>
             <h3 className="text-xs font-heading font-bold mb-3 text-white uppercase tracking-wider">
               Quick Links
             </h3>
-            <ul className="grid grid-cols-2 gap-x-3 gap-y-1.5">
+            <ul className="flex flex-col gap-1.5">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href}>
@@ -96,7 +130,7 @@ export function Footer() {
             <h3 className="text-xs font-heading font-bold mb-3 text-white uppercase tracking-wider">
               Get in Touch
             </h3>
-            <ul className="flex flex-wrap gap-x-4 gap-y-2">
+            <ul className="flex flex-col gap-2">
               {contactItems.map(({ icon: Icon, label, value, href }) => (
                 <li key={label} className="flex items-center gap-2">
                   <span className="p-1.5 bg-white rounded-full shadow-sm shrink-0">
@@ -120,12 +154,12 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Community + Subjects */}
+          {/* Community */}
           <div>
             <h3 className="text-xs font-heading font-bold mb-3 text-white uppercase tracking-wider">
               Community
             </h3>
-            <div className="flex gap-2 mb-4">
+            <div className="flex gap-2">
               <a
                 href="#"
                 aria-label="Facebook"
@@ -147,30 +181,6 @@ export function Footer() {
               >
                 <FaLinkedin size={14} />
               </a>
-            </div>
-
-            <h4 className="text-[11px] font-heading font-bold mb-2 text-white uppercase tracking-wider">
-              Subjects & Boards
-            </h4>
-            <div className="flex flex-wrap gap-1">
-              {[
-                "Mathematics",
-                "Science",
-                "English",
-                "Coding",
-                "Languages",
-                "CBSE",
-                "ICSE",
-                "IB",
-                "IGCSE",
-              ].map((item) => (
-                <span
-                  key={item}
-                  className="text-[10px] bg-white text-foreground px-2 py-0.5 rounded-full shadow-sm"
-                >
-                  {item}
-                </span>
-              ))}
             </div>
           </div>
         </div>
