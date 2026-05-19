@@ -1,8 +1,6 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
 
 const navigationItems = [
   { label: "Home", href: "/" },
@@ -12,7 +10,6 @@ const navigationItems = [
 ];
 
 export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [location] = useLocation();
   const [scrolled, setScrolled] = useState(false);
 
@@ -25,30 +22,31 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/80 backdrop-blur-md shadow-md py-3" : "bg-transparent py-5"
+        scrolled ? "bg-white/90 backdrop-blur-md shadow-md py-3" : "bg-transparent py-4"
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between gap-3">
+      <div className="container mx-auto px-3 sm:px-6 max-w-7xl flex items-center justify-between gap-2 sm:gap-4">
+        {/* Brand */}
         <Link href="/">
-          <div className="flex items-center gap-2 cursor-pointer">
+          <div className="flex items-center gap-1.5 sm:gap-2 cursor-pointer shrink-0">
             <img
               src="/assets/logo.png"
               alt=""
               aria-hidden="true"
-              className="h-9 sm:h-11 md:h-14 w-9 sm:w-11 md:w-14 object-cover object-left"
+              className="h-8 sm:h-11 md:h-14 w-8 sm:w-11 md:w-14 object-cover object-left"
             />
-            <span className="font-heading font-extrabold text-xl sm:text-2xl md:text-4xl text-foreground leading-none tracking-tight">
+            <span className="font-heading font-extrabold text-lg sm:text-2xl md:text-4xl text-foreground leading-none tracking-tight">
               Unklass
             </span>
           </div>
         </Link>
 
-        {/* Desktop Nav — visible from 480px and up */}
-        <nav className="hidden min-[480px]:flex items-center gap-3 sm:gap-5 md:gap-8">
+        {/* Nav — always horizontal */}
+        <nav className="flex items-center gap-2 sm:gap-5 md:gap-8 min-w-0">
           {navigationItems.map((item) => (
             <Link key={item.href} href={item.href}>
               <div
-                className={`text-xs sm:text-sm md:text-base font-medium transition-colors hover:text-primary cursor-pointer whitespace-nowrap ${
+                className={`text-[11px] sm:text-sm md:text-base font-medium transition-colors hover:text-primary cursor-pointer whitespace-nowrap ${
                   location === item.href ? "text-primary font-bold" : "text-foreground"
                 }`}
               >
@@ -62,50 +60,6 @@ export function Header() {
             </Button>
           </Link>
         </nav>
-
-        {/* Mobile Menu Toggle — only true mobile (< 480px) */}
-        <button
-          className="min-[480px]:hidden p-2 text-foreground"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-          aria-expanded={mobileMenuOpen}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-
-        {/* Mobile Nav */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="min-[480px]:hidden absolute top-full left-4 right-4 mt-2 bg-white rounded-2xl shadow-xl border border-border overflow-hidden"
-            >
-              <div className="p-4 flex flex-col gap-4">
-                {navigationItems.map((item) => (
-                  <Link key={item.href} href={item.href}>
-                    <div
-                      className={`block px-4 py-3 rounded-xl transition-colors cursor-pointer ${
-                        location === item.href
-                          ? "bg-primary/10 text-primary font-bold"
-                          : "text-foreground hover:bg-gray-50"
-                      }`}
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {item.label}
-                    </div>
-                  </Link>
-                ))}
-                <Link href="/contact">
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold rounded-full py-6">
-                    Book a Free Trial
-                  </Button>
-                </Link>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
     </header>
   );
