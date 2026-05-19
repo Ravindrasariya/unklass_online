@@ -28,27 +28,27 @@ export function Header() {
         scrolled ? "bg-white/80 backdrop-blur-md shadow-md py-3" : "bg-transparent py-5"
       }`}
     >
-      <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between gap-4">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl flex items-center justify-between gap-3">
         <Link href="/">
-          <div className="flex items-center gap-2 sm:gap-3 cursor-pointer">
+          <div className="flex items-center gap-2 cursor-pointer">
             <img
               src="/assets/logo.png"
               alt=""
               aria-hidden="true"
-              className="h-10 sm:h-12 md:h-14 w-10 sm:w-12 md:w-14 object-cover object-left"
+              className="h-9 sm:h-11 md:h-14 w-9 sm:w-11 md:w-14 object-cover object-left"
             />
-            <span className="font-heading font-extrabold text-2xl sm:text-3xl md:text-4xl text-foreground leading-none tracking-tight">
+            <span className="font-heading font-extrabold text-xl sm:text-2xl md:text-4xl text-foreground leading-none tracking-tight">
               Unklass
             </span>
           </div>
         </Link>
 
-        {/* Desktop Nav — visible from sm and up */}
-        <nav className="hidden sm:flex items-center gap-5 md:gap-8">
+        {/* Desktop Nav — visible from 480px and up */}
+        <nav className="hidden min-[480px]:flex items-center gap-3 sm:gap-5 md:gap-8">
           {navigationItems.map((item) => (
             <Link key={item.href} href={item.href}>
               <div
-                className={`text-sm md:text-base font-medium transition-colors hover:text-primary cursor-pointer whitespace-nowrap ${
+                className={`text-xs sm:text-sm md:text-base font-medium transition-colors hover:text-primary cursor-pointer whitespace-nowrap ${
                   location === item.href ? "text-primary font-bold" : "text-foreground"
                 }`}
               >
@@ -56,18 +56,19 @@ export function Header() {
               </div>
             </Link>
           ))}
-          <Link href="/contact">
+          <Link href="/contact" className="hidden md:inline-flex">
             <Button className="bg-primary hover:bg-primary/90 text-white font-bold rounded-full px-5 md:px-6 shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 whitespace-nowrap">
               Book a Free Trial
             </Button>
           </Link>
         </nav>
 
-        {/* Mobile Menu Toggle — only true mobile */}
+        {/* Mobile Menu Toggle — only true mobile (< 480px) */}
         <button
-          className="sm:hidden p-2 text-foreground"
+          className="min-[480px]:hidden p-2 text-foreground"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
+          aria-expanded={mobileMenuOpen}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -79,7 +80,7 @@ export function Header() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="sm:hidden absolute top-full left-4 right-4 mt-2 bg-white rounded-2xl shadow-xl border border-border overflow-hidden"
+              className="min-[480px]:hidden absolute top-full left-4 right-4 mt-2 bg-white rounded-2xl shadow-xl border border-border overflow-hidden"
             >
               <div className="p-4 flex flex-col gap-4">
                 {navigationItems.map((item) => (
