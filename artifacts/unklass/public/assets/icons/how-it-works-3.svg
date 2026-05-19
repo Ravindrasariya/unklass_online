@@ -1,0 +1,33 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main screen (teacher) -->
+  <rect x="18" y="16" width="84" height="58" rx="6" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="4"/>
+  
+  <!-- Teacher figure -->
+  <circle cx="60" cy="38" r="12" fill="#8B5CF6"/>
+  <path d="M47 56C47 49.373 52.373 44 59 44H61C67.627 44 73 49.373 73 56V56H47V56Z" fill="#8B5CF6"/>
+  
+  <!-- Student screens -->
+  <rect x="20" y="80" width="24" height="24" rx="4" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="2"/>
+  <rect x="48" y="80" width="24" height="24" rx="4" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="2"/>
+  <rect x="76" y="80" width="24" height="24" rx="4" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="2"/>
+  
+  <!-- Student icons -->
+  <circle cx="32" cy="88" r="4" fill="#D8B4FE"/>
+  <rect x="28" y="92" width="8" height="6" rx="2" fill="#D8B4FE"/>
+  
+  <circle cx="60" cy="88" r="4" fill="#D8B4FE"/>
+  <rect x="56" y="92" width="8" height="6" rx="2" fill="#D8B4FE"/>
+  
+  <circle cx="88" cy="88" r="4" fill="#D8B4FE"/>
+  <rect x="84" y="92" width="8" height="6" rx="2" fill="#D8B4FE"/>
+  
+  <!-- Connection lines -->
+  <path d="M40 65L32 78" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2"/>
+  <path d="M60 65L60 78" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2"/>
+  <path d="M80 65L88 78" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2"/>
+  
+  <!-- Interactive elements -->
+  <circle cx="95" cy="26" r="4" fill="#F87171"/>
+  <circle cx="95" cy="40" r="4" fill="#FBBF24"/>
+  <circle cx="95" cy="54" r="4" fill="#34D399"/>
+</svg> 
