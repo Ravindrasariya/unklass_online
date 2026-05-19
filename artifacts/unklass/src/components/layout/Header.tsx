@@ -25,7 +25,7 @@ export function Header() {
         scrolled ? "bg-white/90 backdrop-blur-md shadow-md py-3" : "bg-transparent py-4"
       }`}
     >
-      <div className="container mx-auto px-3 sm:px-6 max-w-7xl flex items-center justify-between gap-3 sm:gap-4">
+      <div className="container mx-auto px-3 sm:px-6 max-w-7xl flex items-center gap-3 sm:gap-6">
         {/* Brand */}
         <Link href="/">
           <div className="flex items-center gap-1.5 sm:gap-2 cursor-pointer shrink-0">
@@ -41,25 +41,27 @@ export function Header() {
           </div>
         </Link>
 
-        {/* Nav — always horizontal */}
-        <nav className="flex items-center gap-3 sm:gap-5 md:gap-8 min-w-0">
+        {/* Nav — centered, always horizontal */}
+        <nav className="flex-1 flex items-center justify-center gap-4 sm:gap-7 md:gap-10 min-w-0">
           {navigationItems.map((item) => (
             <Link key={item.href} href={item.href}>
               <div
-                className={`text-sm md:text-base font-medium transition-colors hover:text-primary cursor-pointer whitespace-nowrap ${
-                  location === item.href ? "text-primary font-bold" : "text-foreground"
+                className={`text-base sm:text-lg md:text-xl font-bold transition-colors hover:text-primary cursor-pointer whitespace-nowrap ${
+                  location === item.href ? "text-primary" : "text-foreground"
                 }`}
               >
                 {item.label}
               </div>
             </Link>
           ))}
-          <Link href="/contact" className="hidden md:inline-flex">
-            <Button className="bg-primary hover:bg-primary/90 text-white font-bold rounded-full px-5 md:px-6 shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 whitespace-nowrap">
-              Book a Free Trial
-            </Button>
-          </Link>
         </nav>
+
+        {/* CTA */}
+        <Link href="/contact" className="hidden sm:inline-flex shrink-0">
+          <Button className="bg-primary hover:bg-primary/90 text-white font-bold rounded-full px-5 md:px-6 shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 whitespace-nowrap">
+            Book a Free Trial
+          </Button>
+        </Link>
       </div>
     </header>
   );

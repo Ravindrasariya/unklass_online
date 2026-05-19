@@ -49,7 +49,7 @@ export function Footer() {
     <footer className="bg-primary text-white">
       <div className="container mx-auto px-6 max-w-7xl py-8">
         {/* Row 1: Brand+address (left) | Subjects (right) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10">
           <div>
             <Link href="/">
               <div className="inline-flex items-center gap-2 bg-white rounded-xl px-3 py-2 mb-3 cursor-pointer shadow-sm">
@@ -93,7 +93,7 @@ export function Footer() {
         <div className="border-t border-white/15 my-6" />
 
         {/* Row 2: Quick Links | Get in Touch | Community */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-10">
           {/* Quick Links */}
           <div>
             <h3 className="text-xs font-heading font-bold mb-3 text-white uppercase tracking-wider">
