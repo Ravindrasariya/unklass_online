@@ -36,7 +36,7 @@ export function Footer() {
   return (
     <footer className="bg-primary text-white">
       <div className="container mx-auto px-6 max-w-7xl py-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
           {/* Brand + address */}
           <div>
             <Link href="/">
@@ -96,7 +96,7 @@ export function Footer() {
             <h3 className="text-xs font-heading font-bold mb-3 text-white uppercase tracking-wider">
               Get in Touch
             </h3>
-            <ul className="flex flex-col gap-2">
+            <ul className="flex flex-wrap gap-x-4 gap-y-2">
               {contactItems.map(({ icon: Icon, label, value, href }) => (
                 <li key={label} className="flex items-center gap-2">
                   <span className="p-1.5 bg-white rounded-full shadow-sm shrink-0">
