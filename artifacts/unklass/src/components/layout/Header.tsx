@@ -30,12 +30,16 @@ export function Header() {
     >
       <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between gap-4">
         <Link href="/">
-          <div className="flex items-center cursor-pointer">
+          <div className="flex items-center gap-2 sm:gap-3 cursor-pointer">
             <img
               src="/assets/logo.png"
-              alt="Unklass"
-              className="h-12 sm:h-14 md:h-16 object-contain"
+              alt=""
+              aria-hidden="true"
+              className="h-10 sm:h-12 md:h-14 w-10 sm:w-12 md:w-14 object-cover object-left"
             />
+            <span className="font-heading font-extrabold text-2xl sm:text-3xl md:text-4xl text-foreground leading-none tracking-tight">
+              Unklass
+            </span>
           </div>
         </Link>
 

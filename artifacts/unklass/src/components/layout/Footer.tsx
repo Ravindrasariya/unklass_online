@@ -41,11 +41,17 @@ export function Footer() {
           {/* Brand + address */}
           <div>
             <Link href="/">
-              <img
-                src="/assets/logo.png"
-                alt="Unklass"
-                className="h-12 object-contain mb-3 cursor-pointer"
-              />
+              <div className="flex items-center gap-2 mb-3 cursor-pointer">
+                <img
+                  src="/assets/logo.png"
+                  alt=""
+                  aria-hidden="true"
+                  className="h-9 w-9 object-cover object-left"
+                />
+                <span className="font-heading font-extrabold text-xl text-foreground leading-none tracking-tight">
+                  Unklass
+                </span>
+              </div>
             </Link>
             <p className="text-xs font-semibold text-foreground/80 mb-1">
               Vegaklass Learning Private Limited
